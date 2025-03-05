@@ -62,4 +62,4 @@ Your CSV file should include the following columns:
 
 ## License
 
-MIT License 
+MIT License
