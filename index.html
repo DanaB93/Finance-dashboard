@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1>Finance Dashboard</h1>
+            <div class="upload-section">
+                <button id="downloadSample" class="download-button">Download Sample Data</button>
+                <input type="file" id="csvFile" accept=".csv" class="file-input" />
+                <label for="csvFile" class="file-label">Upload Employee Data (CSV)</label>
+                <p class="upload-info">CSV should include: Name, Department, Salary, Bonus, Start Date</p>
+            </div>
+        </header>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Total Payroll</h3>
+                <p class="metric-value" id="totalPayroll">-</p>
+                <p class="metric-change positive" id="payrollChange">-</p>
+            </div>
+            <div class="metric-card">
+                <h3>Average Salary</h3>
+                <p class="metric-value" id="avgSalary">-</p>
+                <p class="metric-change" id="salaryChange">-</p>
+            </div>
+            <div class="metric-card">
+                <h3>Total Employees</h3>
+                <p class="metric-value" id="totalEmployees">-</p>
+                <p class="metric-change" id="employeeChange">-</p>
+            </div>
+            <div class="metric-card">
+                <h3>Average Bonus</h3>
+                <p class="metric-value" id="avgBonus">-</p>
+                <p class="metric-change" id="bonusChange">-</p>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Department Salary Distribution</h3>
+                <canvas id="departmentChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Salary Range Distribution</h3>
+                <canvas id="salaryRangeChart"></canvas>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h3>Top 5 Highest Paid Employees</h3>
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Bonus</th>
+                        <th>Total Compensation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" style="text-align: center;">No data available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
